@@ -10,7 +10,7 @@
 
         {% if registered %}
             <strong> Thank you for registering </strong>
-            <p> You can now <a href="/login/"> log in </a></p>
+            <p> You can now <a href="/usr/login/"> log in </a></p>
         {% else %}
             <form class="col-lg-12" role="form" id="user_form" method="post" action="/landlord/register/" enctype="multipart/form-data">
                 {% csrf_token %}

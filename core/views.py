@@ -1,19 +1,14 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
-from core.forms import TenantForm, LandlordForm
+from core.utilities import user_type
 from user_management import views
 
 
 def index(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/home/')
+
     return render(request, 'index.html', {})
-
-
-def register_tenant(request):
-    return views.register(request, TenantForm, 'user_management/register_tenant.html')
-
-
-def register_landlord(request):
-    return views.register(request, LandlordForm, 'user_management/register_landlord.html')
 
 
 def user_login(request):
@@ -29,6 +24,11 @@ def home(request):
     if not request.user.is_authenticated():
         return HttpResponseRedirect('/')
 
-    return render(request)
+    t = user_type(request.user)
+
+    if t is 'other':
+        return HttpResponse('This is page is for actual users')
+
+    return render(request, t + '/home.html', {'user_type': t })
 
 

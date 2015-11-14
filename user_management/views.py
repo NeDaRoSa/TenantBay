@@ -34,6 +34,10 @@ def register(request, form_class, template_path):
 
 
 def user_login(request):
+
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/home/')
+
     if request.method == 'POST':
         username = request.POST["username"]
         password = request.POST["password"]
@@ -57,6 +61,7 @@ def user_login(request):
 
 
 def user_logout(request):
-    logout(request)
+    if request.user.is_authenticated:
+        logout(request)
 
     return HttpResponseRedirect('/')

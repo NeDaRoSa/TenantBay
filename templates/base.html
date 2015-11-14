@@ -21,9 +21,9 @@
                 <ul class="nav navbar-nav">
                     {% if user.is_authenticated %}
                     <li class="navbar-text">Hello, {{ user.first_name }}</li>
-                    <li><a href="/logout/"> Logout </a></li>
+                    <li><a href="/usr/logout/"> Logout </a></li>
                     {% else %}
-                    <li><a href="/login/"> Login </a></li>
+                    <li><a href="/usr/login/"> Login </a></li>
                     {% endif %}
                 </ul>
             </div>
