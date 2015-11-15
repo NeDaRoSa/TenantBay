@@ -42,9 +42,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tenant',
+    'landlord',
     'core',
-    'user_management',
 )
+
+AUTH_USER_MODEL = 'core.TenantBayUser'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -57,7 +60,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'tenants.urls'
+ROOT_URLCONF = 'TenantBay.urls'
 
 TEMPLATES = [
     {
@@ -75,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tenants.wsgi.application'
+WSGI_APPLICATION = 'TenantBay.wsgi.application'
 
 
 # Database

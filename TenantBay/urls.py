@@ -7,7 +7,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index, name='index'),
     url(r'^home/', views.home, name='home'),
-    url(r'^tenant/', include('core.tenant_urls')),
-    url(r'^landlord/', include('core.landlord_urls')),
-    url(r'^usr/', include('user_management.urls'))
+    url(r'^tenant/', include('tenant.urls')),
+    url(r'^landlord/', include('landlord.urls')),
+    url(r'^usr/', include('core.urls'))
 ]
