@@ -11,3 +11,7 @@ __pycache__/
 
 MANIFEST
 *.egg-info
+
+
+*.png
+*.jpg

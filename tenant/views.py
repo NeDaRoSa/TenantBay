@@ -30,3 +30,10 @@ def register(request):
     return render(request, 'user_management/register_tenant.html',
                   {'user_form': user_form, 'profile_form': profile_form, 'registered': registered})
 
+
+def home(request):
+    return render(request, 'tenant/home.html', {'user_type': 'tenant'})
+
+
+def my_pic(request):
+    return render(request, 'tenant/profile_pic.html', {'user_type': 'tenant'})

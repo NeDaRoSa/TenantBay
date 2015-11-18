@@ -17,10 +17,12 @@ def home(request):
 
     t = request.user.get_user_type()
 
-    if t is None:
+    if t == 'landlord':
+        return HttpResponseRedirect('/landlord/home')
+    elif t == 'tenant':
+        return HttpResponseRedirect('/tenant/home/')
+    else:
         return HttpResponse('This is page is for actual users')
-
-    return render(request, t + '/home.html', {'user_type': t })
 
 
 def user_login(request):
